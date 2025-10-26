@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const planForm = document.getElementById('planForm');
     const apiUrl = window.location.hostname === 'localhost' 
         ? '/api/plans' 
-        : 'https://your-backend-url/api/plans';
+        : 'https://fitness-app-backend.onrender.com/api/plans';
 
     // Function to FETCH (READ) all plans and render them
     const fetchPlans = async () => {
