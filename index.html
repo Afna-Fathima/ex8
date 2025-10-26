@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Training and Diet Planning App (URK23CS1282)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Fitness and Diet Planning Dashboard</h1>
+        <p>Node.js Server Application with MongoDB - Exercise 8</p>
+    </header>
+
+    <main>
+        <section class="plan-form">
+            <h2>Add New Plan</h2>
+            <form id="planForm">
+                <input type="text" id="clientName" placeholder="Client Name" required>
+                <input type="text" id="planName" placeholder="Plan Name (e.g., Keto Diet Plan)" required>
+                <input type="number" id="durationWeeks" placeholder="Duration (Weeks)" required min="1">
+                <label for="focusArea">Focus Area</label>
+                <select id="focusArea" required>
+                    <option value="">Select Focus Area</option>
+                    <option value="Weight Loss">Weight Loss</option>
+                    <option value="Muscle Gain">Muscle Gain</option>
+                    <option value="Endurance">Endurance</option>
+                    <option value="General Health">General Health</option>
+                </select>
+                <button type="submit">Create Plan</button>
+            </form>
+        </section>
+
+        <hr>
+
+        <section class="plan-list">
+            <h2>Existing Plans</h2>
+            <div id="plansContainer">
+                <p>Loading plans...</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 URK23CS1282 - Fitness App</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
