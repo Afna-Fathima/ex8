@@ -1,9 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
     const plansContainer = document.getElementById('plansContainer');
     const planForm = document.getElementById('planForm');
-    const apiUrl = window.location.hostname === 'localhost' 
-        ? '/api/plans' 
-        : 'https://fitness-app-backend.onrender.com/api/plans';
+
+    // Determine API base URL in this order:
+    // 1. window.API_BASE (settable from index.html or injected by hosting)
+    // 2. If running on localhost -> use relative `/api` so local server works
+    // 3. Otherwise fallback to the known production backend URL (deploy this app there)
+    const DEFAULT_PROD_BASE = 'https://fitness-app-backend.onrender.com';
+    const base = (typeof window.API_BASE !== 'undefined')
+        ? window.API_BASE
+        : (window.location.hostname === 'localhost' ? '' : DEFAULT_PROD_BASE);
+
+    const apiUrl = base ? `${base.replace(/\/$/, '')}/api/plans` : '/api/plans';
 
     // Function to FETCH (READ) all plans and render them
     const fetchPlans = async () => {
